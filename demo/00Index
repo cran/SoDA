@@ -1,0 +1,2 @@
+searchList	A demonstration of the dangers of duplicate functions on the search
+		        list, in the absence of namespaces.
