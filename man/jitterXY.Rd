@@ -24,7 +24,9 @@ jitterY(y, scale = 1)
 }
 \seealso{  \code{\link{jitter}}, which scales data without regard to the plotting parameters. }
 \examples{
+\dontrun{
   with(sotu, plot(jitterXY(economy, war+peace)))
+}
 }
 \keyword{dplot}
 

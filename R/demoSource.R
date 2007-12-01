@@ -32,7 +32,7 @@ demoSource <- function(demo, inputCon = .demoFifo(),  where = .GlobalEnv) {
                        demo@state <- "quit"
                        break
                        },
-                   stop("Oops, got a key (\"", key, "\"), but there's no corresponding action--looks like a bug in demoSource()")
+                   message("Oops, got a key (\"", key, "\"), but there's no corresponding action--looks like a bug in demoSource()")
                    )
             
         }
@@ -126,7 +126,12 @@ exampleFiles <- function(names = character(), package = "SoDA") {
     value <- NULL
     for(expr in exprs) {
         exp2 <- substitute(withVisible(expr))
-        val <- eval(exp2, envir = envir, enclos = parent.env(envir))
+        val <- try(eval(exp2, envir = envir, enclos = parent.env(envir)))
+        if(inherits(val, "try-error")) {
+            demo@value <- val
+            demo@state <- "error"
+            return(demo)
+        }
         value <- val$value
         if(val$visible)
           print(value)
@@ -156,6 +161,19 @@ exampleFiles <- function(names = character(), package = "SoDA") {
     while(pos < length(demo@lines)) {
       pos <- pos+1
       line <- demo@lines[[pos]]
+      if(regexpr("#SILENT$", line)>0) {
+          if(.nonCommentLine(line)) {
+              demo@pos <- pos
+              prevState <- demo@state
+              save <- demo@partial
+              demo@partial <- line
+              demo <- .parseDemo(demo)
+              demo <- .evalWithVisible(demo)
+              demo@partial <- save
+              demo@state <- prevState
+          }
+          next
+      }
       cat(line, "\n", sep="", file = stderr())
       demo@partial <- c(demo@partial, line)
       demo@pos <- pos
@@ -246,4 +264,10 @@ demoInput <- function(path = "./DemoSourceFifo") {
       fifo(path, open)
     else
       file(path, open) # usually "w" to truncate
+}
+
+.previewLine <- function(demo, file) {
+    line <- demo@lines[demo@pos+1]
+    if(!is.na(line))
+      cat("## ", line, "\n", file = file)
 }

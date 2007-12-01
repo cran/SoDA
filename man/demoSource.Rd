@@ -14,7 +14,7 @@ demoExample(name, package = "SoDA")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{demo}{The file name or input connection for the R source to be demonstrated. }
+  \item{demo}{Either the file name or input connection for the R source to be demonstrated, or an object from class \code{"demoSource"}.  The latter allows resuming a demo. }
   \item{inputCon}{The connection from which to read prompt input.  Usually omitted in which case a call to \code{demoInput()} should occur in another R session in the same directory (see the details).}
   \item{where}{The environment where the demo expressions should be evaluated.  By default, in the global environment.}
 
@@ -35,7 +35,7 @@ A line consisting only of a comma is a continuation:  The next line of the sourc
 Any other input is interpreted as a literal expression that the user wants evaluated instead of the next source line.
 }
 \value{
-  Nothing useful.  Called for its interaction.
+  \code{demoSource()} and \code{demoExample()} return, invisibly, the \code{"demoSource"} object describing the current state of the demo.
 }
 \seealso{
 	\code{\link{demoSource-class}()}

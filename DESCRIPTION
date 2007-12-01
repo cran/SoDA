@@ -1,14 +1,14 @@
 Package: SoDA
 Type: Package
 Title: Software for Data Analysis
-Version: 0.96
-Date: 2007-09-20
-Depends:R(>= 2.4),methods,graphics
+Version: 0.97-1
+Date: 2007-12-01
+Depends:R(>= 2.5),methods,graphics
 Author:  John M Chambers
 Maintainer:  <jmc@r-project.org>
 Description: Utilities and examples from the book 
 	     "Software for Data Analysis: Programming with R".
-License: GPL version 2 or later.
+License: GPL (>= 2)
 LazyLoad: yes
 LazyData: yes
-Packaged: Thu Nov 22 11:10:44 2007; jmc
+Packaged: Mon Jan  7 09:05:07 2008; jmc

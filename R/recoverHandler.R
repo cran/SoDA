@@ -7,6 +7,6 @@ recoverHandler <- function(condition) {
     call <- conditionCall(condition)
     if(!is.null(call))
       message(
-            "The conditon occurred in: ", string1(deparse()))
+            "The condition occurred in: ", string1(deparse()))
     recover()
 }
