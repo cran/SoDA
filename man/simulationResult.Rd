@@ -37,11 +37,6 @@ resetSeed(object, last = FALSE)
 \seealso{
   \code{\link{randomSlippage}}
 }
-\examples{
-
-  }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ programming}
 \keyword{classes}
 

@@ -1,0 +1,100 @@
+AL,4447100,50708,32.5901,-86.7509
+Birmingham,242820,149.9,Montgomery,201568,155.4,Mobile,198915,117.9,Huntsville,158216,174.1,Tuscaloosa,77906,56.2,Hoover,62742,43.1,Dothan,57737,86.6,Decatur,53929,53.4
+AK,626932,566432,49.25,-127.25
+Anchorage,260283,1697.3
+AZ,5130632,113417,34.2192,-111.625
+Phoenix,1321045,474.9,Tucson,486699,194.7,Mesa,396375,125.0,Glendale,218812,55.7,Scottsdale,202705,184.2,Chandler,176581,57.9,Tempe,158625,40.1,Gilbert town,109697,43.0,Peoria,108364,138.2,Yuma,77515,106.7,Flagstaff,52894,63.6
+AR,2673400,51945,34.7336,-92.2992
+Little Rock,183133,116.2,Fort Smith,80268,50.4,North Little Rock,60433,44.8,Fayetteville,58047,43.4,Jonesboro,55515,79.6,Pine Bluff,55085,45.6
+CA,33871648,156361,36.5341,-119.773
+Los Angeles,3694820,469.1,San Diego,1223400,324.4,San Jose,894943,174.9,San Francisco,776733,46.7,Long Beach,461522,50.4,Fresno,427652,104.4,Sacramento,407018,97.2,Oakland,399484,56.1,Santa Ana,337977,27.1,Anaheim,328014,48.9,Riverside,255166,78.1,Bakersfield,247057,113.1,Stockton,243771,54.7,Fremont,203413,76.7,Glendale,194973,30.6,Huntington Beach,189594,26.4,Modesto,188856,35.8,San Bernardino,185401,58.8,Chula Vista,173556,48.9,Oxnard,170358,25.3,Garden Grove,165196,18.0,Oceanside,161029,40.6,Ontario,158007,49.8,Santa Clarita,151088,47.8,Salinas,151060,19.0,Pomona,149473,22.8,Santa Rosa,147595,40.1,Irvine,143072,46.2,Moreno Valley,142381,51.2,Hayward,140030,44.3,Torrance,137946,20.5,Pasadena,133936,23.1,Escondido,133559,36.3,Sunnyvale,131760,21.9,Fontana,128929,36.1,Orange,128821,23.4,Rancho Cucamonga,127743,37.4,Fullerton,126003,22.2,Corona,124966,35.1,Concord,121780,30.1,Lancaster,118718,94.0,Thousand Oaks,117005,54.9,Vallejo,116760,30.2,Palmdale,116670,105.0,El Monte,115965,9.6,Inglewood,112580,9.1,Simi Valley,111351,39.2,Costa Mesa,108724,15.6,Downey,107323,12.4,West Covina,105080,16.1,Daly City,103621,7.6,Norwalk,103298,9.7,Berkeley,102743,10.5,Santa Clara,102361,18.4,San Buenaventura (Ventura),100916,21.1,Burbank,100316,17.3,Richmond,99216,30.0,South Gate,96375,7.4,Fairfield,96178,37.7,El Cajon,94869,14.6,Compton,93493,10.1,Mission Viejo,93102,18.7,San Mateo,92482,12.2,Santa Barbara,92325,19.0,Rialto,91873,21.9,Visalia,91565,28.6,Antioch,90532,26.9,Vista,89857,18.7,Carson,89730,18.8,Vacaville,88625,27.1,Westminster,88207,10.1,Alhambra,85804,7.6,Citrus Heights,85071,14.3,Hawthorne,84112,6.1,Santa Monica,84084,8.3,Whittier,83680,14.6,Redding,80865,58.4,Roseville,79921,30.5,San Leandro,79452,13.1,Lakewood,79345,9.4,Buena Park,78282,10.6,Carlsbad,78247,37.4,Santa Maria,77423,19.3,Baldwin Park,75837,6.7,Redwood City,75402,19.5,Livermore,73345,23.9,Bellflower,72878,6.1,Napa,72585,17.7,Alameda,72259,10.8,Mountain View,70708,12.1,Newport Beach,70032,14.8,Lynwood,69845,4.9,Clovis,68468,17.1,Upland,68393,15.1,Tustin,67504,11.4,Chino,67168,21.1,Union City,66869,19.3,Chino Hills,66787,44.8,Walnut Creek,64296,19.9,Victorville,64029,72.8,Merced,63893,19.9,Pleasanton,63654,21.7,Redlands,63591,35.5,Pico Rivera,63428,8.3,Redondo Beach,63261,6.3,Milpitas,62698,13.6,Hesperia,62582,67.4,Montebello,62150,8.2,Laguna Niguel,61891,14.7,Huntington Park,61348,3.0,South San Francisco,60552,9.0,Davis,60308,10.5,Monterey Park,60051,7.6,Chico,59954,27.7,La Habra,58974,7.3,Yorba Linda,58918,19.4,Hemet,58812,25.6,Lake Forest,58707,12.5,Palo Alto,58598,23.7,Encinitas,58014,19.1,Gardena,57746,5.8,Temecula,57716,26.3,Camarillo,57077,18.9,Lodi,56999,12.2,Tracy,56929,21.0,Pittsburg,56769,15.6,Diamond Bar,56287,14.8,San Rafael,56063,16.6,Turlock,55810,13.3,Paramount,55266,4.7,Fountain Valley,54978,8.9,San Marcos,54977,23.8,La Mesa,54749,9.3,Santa Cruz,54593,12.5,Petaluma,54548,13.8,National City,54260,7.4,Apple Valley town,54239,73.3,Rosemead,53505,5.1,Arcadia,53054,11.0,Santee,52975,16.1,Folsom,51884,21.7,Cerritos,51488,8.6,Cupertino,50546,10.9
+CO,4301261,103766,38.6777,-105.513
+Denver,554636,153.4,Colorado Springs,360890,185.8,Aurora CO,276393,142.5,Lakewood,144126,41.6,Fort Collins,118652,46.5,Arvada,102153,32.7,Pueblo,102121,45.1,Westminster,100940,31.5,Boulder,94673,24.4,Thornton,82384,26.9,Greeley,76930,29.9,Longmont,71093,21.8,Loveland,50608,24.6
+CT,3405565,4862,41.5928,-72.3573
+Bridgeport,139529,16.0,New Haven,123626,18.9,Hartford,121578,17.3,Stamford,117083,37.7,Waterbury,107271,28.6,Norwalk,82951,22.8,Danbury,74848,42.1,New Britain,71538,13.3,Bristol,60062,26.5,Meriden,58244,23.7,West Haven,52360,10.8,Milford,50594,22.3
+DE,783600,1982,38.6777,-74.9841
+Wilmington,72664,10.8
+FL,15982378,54090,27.8744,-81.685
+Jacksonville,735617,757.7,Miami,362470,35.7,Tampa,303447,112.1,St. Petersburg,248232,59.6,Hialeah,226419,19.2,Orlando,185951,93.5,Fort Lauderdale,152397,31.7,Tallahassee,150624,95.7,Hollywood,139357,27.3,Pembroke Pines,137427,33.1,Coral Springs,117549,23.9,Clearwater,108787,25.3,Cape Coral,102286,105.2,Gainesville,95447,48.2,Port St. Lucie,88769,75.5,Miami Beach,87933,7.0,Sunrise,85779,18.2,Plantation,82934,21.7,West Palm Beach,82103,55.1,Palm Bay,79413,63.6,Lakeland,78452,45.8,Pompano Beach,78191,20.6,Davie town,75720,33.4,Boca Raton,74764,27.2,Miramar,72739,29.5,Melbourne,71382,30.2,Deltona,69543,35.8,Largo,69371,15.7,Deerfield Beach,64583,13.4,Daytona Beach,64112,58.7,Boynton Beach,60389,15.9,Delray Beach,60020,15.4,North Miami,59880,8.5,Lauderhill,57585,7.3,Pensacola,56255,22.7,Tamarac,55588,11.4,Margate,53909,8.8,Sarasota,52715,14.9
+GA,8186453,58073,32.3329,-83.3736
+Atlanta,416474,131.8,Augusta,195182,302.1,Columbus,185781,216.1,Savannah,131510,74.7,Athens,100266,117.8,Macon,97255,55.8,Roswell,79334,38.0,Albany GA,76939,55.5,Marietta,58748,21.9
+HI,1211537,6425,31.75,-126.25
+
+ID,1293953,82677,43.5648,-113.93
+Boise City,185787,63.8,Nampa,51867,19.9,Pocatello,51466,28.2,Idaho Falls,50730,17.1
+IL,12419293,55748,40.0495,-89.3776
+Chicago,2896016,227.1,Rockford,150115,56.0,Aurora IL,142990,38.5,Naperville,128358,35.4,Peoria,112936,44.4,Springfield,111454,54.0,Joliet,106221,38.1,Elgin,94487,25.0,Waukegan,87901,23.0,Cicero town,85616,5.8,Decatur,81860,41.6,Arlington Heights village,76031,16.4,Schaumburg village,75386,19.0,Evanston,74239,7.7,Champaign,67518,17.0,Palatine village,65479,13.0,Bloomington IL,64808,22.5,Skokie village,63348,10.0,Des Plaines,58720,14.4,Bolingbrook village,56321,20.5,Mount Prospect village,56265,10.2,Wheaton,55416,11.2,Oak Lawn village,55245,8.6,Berwyn,54016,3.9,Oak Park village,52524,4.7,Orland Park village,51077,19.1
+IN,6080485,36097,40.0495,-86.0808
+Indianapolis,781870,361.5,Fort Wayne,205727,79.0,Evansville,121582,40.7,South Bend,107789,38.7,Gary,102746,50.2,Hammond,83048,22.9,Bloomington IN,69291,19.7,Muncie,67430,24.2,Anderson,59734,40.0,Terre Haute,59614,31.2,Lafayette,56397,20.1,Elkhart,51874,21.4
+IA,2926324,55941,41.9358,-93.3714
+Des Moines,198682,75.8,Cedar Rapids,120758,63.1,Davenport,98359,62.8,Sioux City,85013,54.8,Waterloo,68747,60.7,Iowa City,62220,24.2,Council Bluffs,58268,37.4,Dubuque,57686,26.5,Ames,50731,21.6
+KS,2688418,81787,38.4204,-98.1156
+Wichita,344284,135.8,Overland Park,149080,56.8,Kansas City,146866,124.3,Topeka,122377,56.0,Olathe,92962,54.2,Lawrence,80098,28.1
+KY,4041769,39650,37.3915,-84.7674
+Lexington-Fayette,260512,284.5,Louisville,256231,62.1,Owensboro,54067,17.4
+LA,4468976,44930,30.6181,-92.2724
+New Orleans,484674,180.6,Baton Rouge,227818,76.8,Shreveport,200145,103.1,Lafayette,110257,47.6,Lake Charles,71757,40.2,Kenner,70517,15.1,Bossier City,56461,40.8,Monroe,53107,28.7
+ME,1274923,30920,45.6226,-68.9801
+Portland,64249,21.2
+MD,5296486,9891,39.2778,-76.6459
+Baltimore,651154,80.8,Frederick,52767,20.4,Gaithersburg,52613,10.1,Bowie,50269,16.1
+MA,6349097,7826,42.3645,-71.58
+Boston,589141,48.4,Worcester,172648,37.6,Springfield,152082,32.1,Lowell,105167,13.8,Cambridge,101355,6.4,Brockton,94304,21.5,New Bedford,93768,20.1,Fall River,91938,31.0,Lynn,89050,10.8,Quincy,88025,16.8,Newton,83829,18.1,Somerville,77478,4.1,Lawrence,72043,7.0,Waltham,59226,12.7,Haverhill,58969,33.3,Malden,56340,5.1,Taunton,55976,46.6,Medford,55765,8.1,Chicopee,54653,22.9
+MI,9938444,56817,43.1361,-84.687
+Detroit,951270,138.8,Grand Rapids,197800,44.6,Warren,138247,34.3,Flint,124943,33.6,Sterling Heights,124471,36.6,Lansing,119128,35.0,Ann Arbor,114024,27.0,Livonia,100545,35.7,Dearborn,97775,24.4,Westland,86602,20.5,Farmington Hills,82111,33.3,Troy,80959,33.5,Southfield,78296,26.2,Kalamazoo,77145,24.7,Wyoming,69368,24.4,Rochester Hills,68825,32.9,Pontiac,66337,20.0,Taylor,65868,23.6,St. Clair Shores,63096,11.5,Saginaw,61799,17.4,Royal Oak,60062,11.8,Dearborn Heights,58264,11.7,Battle Creek,53364,42.8
+MN,4919479,79289,46.3943,-94.6043
+Minneapolis,382618,54.9,St. Paul,287151,52.8,Duluth,86918,68.0,Rochester,85806,39.6,Bloomington MN,85172,35.5,Brooklyn Park,67388,26.1,Plymouth,65894,32.9,Eagan,63557,32.3,Coon Rapids,61607,22.7,Burnsville,60220,24.9,St. Cloud,59107,30.2,Eden Prairie,54901,32.4,Minnetonka,51301,27.1,Maple Grove,50365,32.9
+MS,2844658,47296,32.6758,-89.8065
+Jackson,184256,104.9,Gulfport,71127,56.9,Biloxi,50644,38.0
+MO,5595211,68995,38.3347,-92.5137
+Kansas City,441545,313.6,St. Louis,348189,61.9,Springfield,151580,73.2,Independence,113288,78.3,Columbia,84531,53.1,St. Joseph,73990,43.8,Lees Summit,70700,59.5,St. Charles,60321,20.4,St. Peters,51381,21.2,Florissant,50497,11.4
+MT,902195,145587,46.823,-109.32
+Billings,89847,33.7,Missoula,57053,23.8,Great Falls,56690,19.5
+NE,1711263,76483,41.3356,-99.5898
+Omaha,390007,115.7,Lincoln,225581,74.6
+NV,1998257,109889,39.1063,-116.851
+Las Vegas,478434,113.3,Reno,180480,69.1,Henderson,175381,79.7,North Las Vegas,115488,78.5,Sparks,66346,23.9,Carson City NV,52457,143.4
+NH,1235786,9027,43.3934,-71.3924
+Manchester,107006,33.0,Nashua,86605,30.9
+NJ,8414350,7521,39.9637,-74.2336
+Newark,273546,23.8,Jersey City,240055,14.9,Paterson,149222,8.4,Elizabeth,120568,12.2,Trenton,85403,7.7,Camden,79904,8.8,Clifton,78672,11.3,East Orange,69824,3.9,Passaic,67861,3.1,Union City,67088,1.3,Bayonne,61842,5.6,Vineland,56271,68.7
+NM,1819046,121412,34.4764,-105.942
+Albuquerque,448607,180.7,Las Cruces,74267,52.1,Santa Fe,62203,37.3,Rio Rancho,51765,73.4
+NY,18976457,47831,43.1361,-75.1449
+New York,8008278,303.3,Buffalo,292648,40.6,Rochester,219773,35.8,Yonkers,196086,18.1,Syracuse,147306,25.1,Albany NY,95658,21.4,New Rochelle,72182,10.4,Mount Vernon,68381,4.4,Schenectady,61821,10.8,Utica,60651,16.3,Hempstead village,56554,3.7,Niagara Falls,55593,14.1,White Plains,53077,9.8
+NC,8049313,48798,35.4195,-78.4686
+Charlotte,540828,242.3,Raleigh,276093,114.6,Greensboro,223891,104.7,Durham,187035,94.6,Winston-Salem,185776,108.9,Fayetteville,121015,58.8,Cary town,94536,42.1,High Point,85839,49.1,Wilmington,75838,41.0,Asheville,68889,40.9,Jacksonville,66715,44.5,Gastonia,66277,46.1,Greenville,60476,25.6,Concord,55977,51.6,Rocky Mount,55893,35.6
+ND,642200,69273,47.2517,-100.099
+Fargo,90599,37.9,Bismarck,55532,26.9
+OH,11353140,40975,40.221,-82.5963
+Columbus,711470,210.3,Cleveland,478403,77.6,Cincinnati,331285,78.0,Toledo,313619,80.6,Akron,217074,62.1,Dayton,166179,55.8,Parma,85655,20.0,Youngstown,82026,33.9,Canton,80806,20.5,Lorain,68652,24.0,Springfield,65358,22.5,Hamilton,60690,21.6,Kettering,57502,18.7,Lakewood,56646,5.5,Elyria,55953,19.9,Euclid,52717,10.7,Middletown,51605,25.7,Mentor,50278,26.8
+OK,3450654,68782,35.5053,-97.1239
+Oklahoma City,506132,607.0,Tulsa,393049,182.7,Norman,95694,177.0,Lawton,92757,75.1,Broken Arrow,74859,45.0,Edmond,68315,85.1,Midwest City,54088,24.6
+OR,3421399,96184,43.9078,-120.068
+Portland,529121,134.3,Eugene,137893,40.5,Salem,136924,45.7,Gresham,90205,22.2,Beaverton,76129,16.3,Hillsboro,70186,21.6,Medford,63154,21.7,Springfield,52864,14.4,Bend,52029,32.0
+PA,12281054,44966,40.9069,-77.45
+Philadelphia,1517550,135.1,Pittsburgh,334563,55.6,Allentown,106632,17.7,Erie,103717,22.0,Reading,81207,9.8,Scranton,76415,25.2,Bethlehem,71329,19.3,Lancaster,56348,7.4
+RI,1048319,1049,41.5928,-71.1244
+Providence,173618,18.5,Warwick,85808,35.5,Cranston,79269,28.6,Pawtucket,72958,8.7
+SC,4012012,30225,33.619,-80.5056
+Columbia,116278,125.2,Charleston,96650,97.0,North Charleston,79641,58.5,Greenville,56002,26.1
+SD,754844,75955,44.3365,-99.7238
+Sioux Falls,123975,56.3,Rapid City,59607,44.6
+TN,5689283,41328,35.6767,-86.456
+Memphis,650100,279.3,Nashville-Davidson,545524,473.3,Knoxville,173890,92.7,Chattanooga,155554,135.2,Clarksville,103455,94.9,Murfreesboro,68816,39.0,Jackson,59643,49.5,Johnson City,55469,39.3
+TX,20851820,262134,31.3897,-98.7857
+Houston,1953631,579.5,Dallas,1188580,342.6,San Antonio,1144646,407.6,Austin,656562,251.5,El Paso,563662,249.1,Fort Worth,534694,292.6,Arlington,332969,95.8,Corpus Christi,277454,154.6,Plano,222030,71.6,Garland,215768,57.1,Lubbock,199564,114.8,Irving,191615,67.2,Laredo,176576,78.5,Amarillo,173627,89.9,Pasadena,141674,44.2,Brownsville,139722,80.4,Grand Prairie,127427,71.4,Mesquite,124523,43.4,Abilene,115930,105.1,Beaumont,113866,85.0,Waco,113726,84.2,Carrollton,109576,36.5,McAllen,106414,46.0,Wichita Falls,104197,70.7,Midland,94996,66.6,Richardson,91802,28.6,Odessa,90943,36.8,San Angelo,88439,55.9,Killeen,86911,35.3,Tyler,83650,49.3,Denton,80537,61.5,Lewisville,77737,36.8,Longview,73344,54.7,College Station,67890,40.3,Baytown,66430,32.7,Bryan,65660,43.3,Sugar Land,63328,24.1,Round Rock,61136,26.1,Victoria,60603,33.0,Port Arthur,57755,82.9,Harlingen,57564,34.1,Galveston,57247,46.2,North Richland Hills,55635,18.2,Temple,54514,65.4,McKinney,54369,58.0,Missouri City,52913,29.7,Flower Mound,50702,40.9
+UT,2233169,82096,39.1063,-111.33
+Salt Lake City,181743,109.1,West Valley City,108896,35.4,Provo,105166,39.6,Sandy,88418,22.3,Orem,84324,18.4,Ogden,77226,26.6,West Jordan,68336,30.9,Layton,58474,20.7,Taylorsville,57439,10.7
+VT,608827,9267,44.2508,-72.545
+
+VA,7078515,39780,37.563,-78.2005
+Virginia Beach,425257,248.3,Norfolk,234403,53.7,Chesapeake,199184,340.7,Richmond,197790,60.1,Newport News,180150,68.3,Hampton,146437,51.8,Alexandria,128283,15.2,Portsmouth,100565,33.2,Roanoke,94911,42.9,Lynchburg,65269,49.4,Suffolk,63677,400.0
+WA,5894121,66570,47.4231,-119.746
+Seattle,563374,83.9,Spokane,195629,57.8,Tacoma,193556,50.1,Vancouver,143560,42.8,Bellevue,109569,30.7,Everett,91488,32.5,Federal Way,83259,21.0,Kent,79524,28.0,Yakima,71845,20.1,Bellingham,67171,25.6,Lakewood,58211,17.1,Kennewick,54693,22.9,Shoreline,53025,11.7,Renton,50052,17.0
+WV,1808344,24070,38.4204,-80.6665
+Charleston,53421,31.6,Huntington,51475,15.9
+WI,5363675,54464,44.5937,-89.9941
+Milwaukee,596974,96.1,Madison,208054,68.7,Green Bay,102313,43.9,Kenosha,90352,23.8,Racine,81855,15.5,Appleton,70087,20.9,Waukesha,64825,21.6,Oshkosh,62916,23.6,Eau Claire,61704,30.3,West Allis,61254,11.3,Janesville,59498,27.5,La Crosse,51818,20.1,Sheboygan,50792,13.9
+WY,493782,97203,43.0504,-107.256
+Cheyenne,53011,21.1

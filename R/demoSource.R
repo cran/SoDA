@@ -1,7 +1,9 @@
 
-demoSource <- function(demo, inputCon = .demoFifo(),  where = .GlobalEnv) {
-    if(!isOpen(inputCon))
-      stop("The connection for control input is not open:  usually, you should call demoInput() in a separate R session.")
+demoSource <- function(demo = localRFiles(ask=TRUE), inputCon = .demoFifo(),  where = .GlobalEnv) {
+    if(is.null(inputCon) || !isOpen(inputCon)) {
+        message("The connection for control input is not open:  usually, you should call demoInput() in a separate R session.")
+        return(invisible())
+    }
     on.exit(if(!identical(inputCon, stdin()))
        close(inputCon))
     if(!is(demo, "demoSource"))
@@ -46,7 +48,7 @@ demoSource <- function(demo, inputCon = .demoFifo(),  where = .GlobalEnv) {
     invisible(demo)
 }
 demoExample <- function(name, package = "SoDA") {
-    file <- exampleFiles(name, package)
+    file <- exampleFiles(name, package, TRUE, TRUE)
     if(length(file) == 0)
       stop("No example file found for \"",name, "\"")
     demoSource(file)
@@ -63,37 +65,56 @@ setClass("demoSource",
          prototype = prototype(pos = 0, state = "initial")
          )
 
-exampleFiles <- function(names = character(), package = "SoDA") {
+exampleFiles <- function(names = character(), where = "SoDA", oneFile = FALSE, path = TRUE) {
     .matchFile <- function(thisName, files) {
         i <- match(thisName, files)
         if(is.na(i)) {
-            i <- match(paste(thisName, ".R", sep=""), files)
+            if(oneFile)
+              i <- match(paste(thisName, ".R", sep=""), files)
             if(is.na(i)) {
-                candidates <- paste(thisName, c(".S", ".q", ".r", ".s"), sep = "")
-                i <- match(candidates, files)
-                i <- i[!is.na(i)]
-                if(length(i) > 1){
-                    i <- i[[1]]
-                    warning("ambiguous match, using \"", candidates[[i]], "\"")
-                }
-                else if(length(i) == 0)
-                  i <- NA
+                candidates <- paste(thisName, ".", sep = "")
+                i <- grep(candidates, files)
             }
         }
-        if(is.na(i))
-          character()
-        else
-          files[i]
+        files[i]
     }
-    files <- list.files(system.file("Examples", package = package))
-    if(length(names) == 0 || identical(names, ""))
+    .matchPages <- function(pages, examplePages) {
+        if(is.null(examplePages))
+          stop("can't look for examples by page, no \"examplePages\" object")
+        i <- match(pages, examplePages$Page,0)
+        names <- as.character(examplePages$Name[i]) # may be a factor
+        if(length(names) == 0)
+           warning("No example names available for ",
+                   if(length(pages)==1) pages else "these pages")
+        names
+    }
+    directory <- system.file("Examples", package = where)
+    if(!nzchar(directory) ) {
+        if(file.access(directory) < 0)
+          stop("argument \"where\" must be the name of a package with an Examples directory or the path name of a directory")
+        else
+          directory <- where
+    }
+    files <- list.files(directory)
+    if(length(names) == 0)
       files
     else {
+        if(is.numeric(names)) {
+            examplePages <- NULL
+            data("examplePages", package = where, envir = sys.frame(sys.nframe()))
+            names <- .matchPages(names, examplePages)
+        }
         found <- character()
         for(thisName in names)
           found <- c(found, .matchFile(thisName, files))
-        system.file("Examples", found, package = package)
+        files <- found
     }
+    if(length(files) > 1 && oneFile)
+      files <- files[menu(files, TRUE, "Please select one file")]
+    if(path && nzchar(directory))
+      file.path(directory, files)
+    else
+      files
 }
 
 ## Utility functions used by the previous
@@ -117,7 +138,44 @@ exampleFiles <- function(names = character(), package = "SoDA") {
     demo@pos <- 0
     demo
 }
+# copied from the code for try() but w/o object `silent`
+.stdErrorHandler <- function(e) {
+        call <- conditionCall(e)
+        if (!is.null(call)) {
+            if (identical(call[[1]], quote(doTryCatch))) 
+                call <- sys.call(-4)
+            dcall <- deparse(call)[1]
+            prefix <- paste("Error in", dcall, ": ")
+            LONG <- 75
+            msg <- conditionMessage(e)
+            sm <- strsplit(msg, "\n")[[1]]
+            if (14 + nchar(dcall, type = "w") + nchar(sm[1], 
+                type = "w") > LONG) 
+                prefix <- paste(prefix, "\n  ", sep = "")
+        }
+        else prefix <- "Error : "
+        msg <- paste(prefix, conditionMessage(e), "\n", sep = "")
+        .Internal(seterrmessage(msg[1]))
+        if ( identical(getOption("show.error.messages"), 
+            TRUE)) {
+            cat(msg, file = stderr())
+            .Internal(printDeferredWarnings())
+        }
+        invisible(structure(msg, class = "try-error"))
+    }
 
+.localErrorHandler <- function() {
+    errorOpt <- options()$error
+    if(is.null(errorOpt))
+      function(e) e
+    else {
+        function(e) {
+            value <- .stdErrorHandler(e)
+            eval(errorOpt, parent.frame())
+            value
+        }
+    }
+}
 
 
 .evalWithVisible <- function(demo) {
@@ -126,7 +184,8 @@ exampleFiles <- function(names = character(), package = "SoDA") {
     value <- NULL
     for(expr in exprs) {
         exp2 <- substitute(withVisible(expr))
-        val <- try(eval(exp2, envir = envir, enclos = parent.env(envir)))
+        val <- try(withCallingHandlers(eval(exp2, envir = envir, enclos = parent.env(envir)),
+                        error = .localErrorHandler()))
         if(inherits(val, "try-error")) {
             demo@value <- val
             demo@state <- "error"
@@ -157,7 +216,6 @@ exampleFiles <- function(names = character(), package = "SoDA") {
 
 .nextSourceLine <- function(demo) {
     pos <- demo@pos
-    prompt <- getOption("continue")
     while(pos < length(demo@lines)) {
       pos <- pos+1
       line <- demo@lines[[pos]]
@@ -177,11 +235,8 @@ exampleFiles <- function(names = character(), package = "SoDA") {
       cat(line, "\n", sep="", file = stderr())
       demo@partial <- c(demo@partial, line)
       demo@pos <- pos
-      if(.nonCommentLine(line)) {
-          demo@state <- "partial" # ?? probably will be set by caller
-          break
-      }
-      .showPrompt("partial")
+      demo@state <- "partial" # ?? probably will be set by caller
+      break
     }
     demo
 }
@@ -254,14 +309,20 @@ demoInput <- function(path = "./DemoSourceFifo") {
     repeat{
         control <- readLines(n=1)
         cat(control, "\n", sep="", file = con)
-        if(identical(control, "q" ))
-          return(invisible())
+        if(identical(control, "q" )) {
+            file.remove(path)
+            return(invisible())
+        }
     }
 }
 
 .demoFifo <- function(path = "./DemoSourceFifo", open = "r") {
-    if(identical(open, "r"))
-      fifo(path, open)
+    if(identical(open, "r")) {
+        if(!file.exists(path))
+          NULL
+        else
+          fifo(path, open)
+    }
     else
       file(path, open) # usually "w" to truncate
 }

@@ -1,11 +1,6 @@
 import(graphics)
 exportPattern("^[^\\.]")
-## useDynLIb(digest) # would be nice, if it worked!
 useDynLib(SoDA)
-## export(geoDist,geoXY, method.skeleton, packageAdd, promptAll, scanGPSTrack, showLanguage, triDiag, triDiag2, triDiag2S, triDiag3, triDiag3S, traceS3, untraceS3)
-## export(binaryRep, binaryRepA, binaryRepBits, binaryRepPowers)
-## export(jitterX, jitterXY,  jitterY)
-## export(sotu)
 
 exportClass(DateTime, GPSTrack)
 exportClass(track, track3)

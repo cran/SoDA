@@ -1,4 +1,5 @@
 if(tryCatch(require(RSPerl, quietly = TRUE), error = function(cond)FALSE)) {
+    require(SoDA)
 set.seed(314)
 someLetters <- sample(letters, 100, TRUE)
 tbl <- chunksAdd(data = someLetters[1:50])

@@ -27,6 +27,4 @@ on the ellipsoid with application of nested equations. \emph{Survey
 Review}, vol. 23(176):88-94.
 }
 \seealso{ For the \code{DUP} argument, see  \code{\link{.Fortran}}. }
-\examples{
-}
 \keyword{ math }% at least one, from doc/KEYWORDS
