@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Run or access example files}
 \description{
-  This function finds and runs an file,  usually of R code.  The
+  This function finds and runs a file,  usually of R code.  The
   function is specialized to look for examples included in the package
   and based on material in \emph{Software for Data Analysis}, but can
   be used for other directories containing source files as well.
@@ -50,7 +50,8 @@ runExample(what, where = , run = TRUE, ..., echo = TRUE, prompt.echo, wd)
   more clever.
 }
 \seealso{\code{\link{demoSource}} for a more interactive way to run a
-  file of R code. }
+  file of R code, and \code{\link{exampleFiles}} for direct access to
+  the path of the file. }
 \references{
 Chambers, John M.(2008) \emph{Software for Data Analysis}, Springer.
 }

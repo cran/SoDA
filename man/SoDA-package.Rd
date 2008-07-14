@@ -37,6 +37,7 @@ add software and documentation to a package.
 
 }
 \references{
-Chambers, John M.(2008) \emph{Software for Data Analysis}, Springer.
+Chambers, John M.(2008) \emph{Software for Data Analysis: Programming
+  with R}, Springer.
 }
 \keyword{ package }

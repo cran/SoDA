@@ -1,5 +1,5 @@
 ## requires mars data.frame
-load("Examples/mars.Rdata")
+SoDA:::.getMarsData()
 pdf(file = "Examples/marsPlot2.pdf", width = 7.5, height = 3)
 par(cex=.6)
 noTime <- nchar(mars$Time)==0

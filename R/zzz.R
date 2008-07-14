@@ -1,6 +1,17 @@
 
 .hasRSPerl <- FALSE
 
+.getMarsData <- function() {
+    if(file.exists("mars.csv"))
+        eval.parent(quote(mars <- read.csv("mars.csv", skip = 5, as.is = TRUE)))
+    else if(file.exists("Examples/mars.csv"))
+        eval.parent(quote(mars <- read.csv("Examples/mars.csv", skip = 5, as.is = TRUE)))
+    else if(file.exists("Examples/mars.Rdata"))
+        eval.parent(quote(load("Examples/mars.Rdata")))
+    else
+      stop("To run this example, you must download or construct the file \"mars.csv\"; see page 176 in the book")
+}
+
 .onLoad <- function(libname, pkgname) { 
    if(tryRequire("RSPerl")) {
        .hasRSPerl <<- TRUE

@@ -5,7 +5,7 @@
 \alias{triDiag3}
 \alias{triDiag3S}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{Tridiagonal Matrix Functions }
 \description{
   Functions to create forms of tridiagonal matrix objects.
 }

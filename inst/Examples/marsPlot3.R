@@ -1,5 +1,5 @@
 ## requires mars data.frame
-load("Examples/mars.Rdata")
+SoDA:::.getMarsData()
 pdf(file = "Examples/marsPlot3.pdf", width = 7.5, height = 3)
 xx = par("mar")
 xx[[1]] = xx[[1]]-2
