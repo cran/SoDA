@@ -7,13 +7,16 @@
   The expression is checked for stricter conditions on compatible arguments; if the conditions fail an error or warning is issued. If no error is issued, the expression's value is returned.
 }
 \usage{
-withStrictOps(expr, attach = TRUE)
+withStrictOps(expr, attach)
 strictOp(expr, warnOnly = FALSE, errorCall)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{expr}{ For \code{withStrictOps}, any expression to be evaluated. Subexpressions from the  binary operators in the base package for arithmetic, comparison, and logic will be evaluated by stricter rules.  For \code{strictOp}, the expression should only be one of these calls.  Generally, \code{withStrictOp} will be more convenient to use, and \code{strictOp} is largely for internal use. }
-    \item{attach}{Optional argument, only examined if \code{expr} is missing.  If \code{TRUE}, then the \code{"strictOps"} environment is attached, overriding the applicable operators with strict versions.  If \code{attach} is \code{FALSE}, this environment is detached. See the details.}
+    \item{attach}{No longer supported in CRAN, because of restriction
+        added long after this package was written.  Used to be:
+
+Optional argument, only examined if \code{expr} is missing.  If \code{TRUE}, then the \code{"strictOps"} environment is attached, overriding the applicable operators with strict versions.  If \code{attach} is \code{FALSE}, this environment is detached. See the details.}
   \item{warnOnly}{If \code{TRUE}, only issue warnings on failures.}
     \item{errorCall}{Optional argument for internal use, supplying the expression to be used in error messages as the original call.}
 }

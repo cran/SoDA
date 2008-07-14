@@ -1,4 +1,4 @@
-7ec55163ca8e37134f62f450cda1c841 *DESCRIPTION
+f272ab529bcb9411a3c20c624b1111c6 *DESCRIPTION
 0789a3e0e60547dc8ef62b017931d7d4 *LICENSE
 dc54b05b1be49b49185281ef74d13b10 *NAMESPACE
 3e376aa4bd9a5c4bd769ef733089a2a9 *R/GPSTrack.R
@@ -24,8 +24,8 @@ f9e9e6dc981d6687afed47fa328e7cca *R/randomSlippage.R
 aee212c9a0478383fb5771b95231a8e9 *R/scanRepeated.R
 edbd581262ae59717e894e76dcf3da7a *R/showEnv.R
 b81a241a8fed03df1efc6fc26d3d0160 *R/showLanguage.R
-9c861f6ef516fdf5d7a55bbc41d9aaa6 *R/simulationResult.R
-367f106bcf9142f413151943c71f713f *R/strictOp.R
+7b298df7aa081945fbef3b0ca2416fad *R/simulationResult.R
+a57921d886725b57e8a3984366e5c69a *R/strictOp.R
 8cf88796d8a9759161bb1a71b2800525 *R/trackClass.R
 26cbbd821fa04f1cc618f08d33d083f1 *R/trackSpeed.R
 2886c14ef01f797cb166529cc60f5370 *R/triDiag.R
@@ -164,7 +164,7 @@ ae30c7307a70c7f78adc1f865542779a *man/recoverHandler.Rd
 8ed5f240fdcf98be036f99bd246cfbce *man/showEnv.Rd
 36eb407c27eb7d1185d52ecac62a1367 *man/showLanguage.Rd
 4750ef28488c2842a820ccdc5d11c212 *man/simulationResult.Rd
-978727b33d2b157cca06287b256d8c34 *man/strictOp.Rd
+686658c23b55aba00fbd1b4414b73a81 *man/strictOp.Rd
 ce4479f12a4797ba22402fc67214040c *man/track-class.Rd
 eb2e87c370b51903a1dec036ff90025c *man/trackSpeed.Rd
 505bbf96981ec266a51c8248a5f272dd *man/triDiagonal.Rd

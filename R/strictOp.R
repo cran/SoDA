@@ -109,7 +109,7 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
     else if(!is.logical(e2) && !is.raw(e2))
       .tail(msg) <- c("Second argument is not logical or raw: class \"", class(e2), "\"")
     if(length(msg) > 0)
-      .strictOpMessage(errorCall, msg, condFun)       
+      .strictOpMessage(errorCall, msg, condFun)
     return(expr)
 }
 
@@ -122,7 +122,7 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
            raw = "raw",
            environment = if(.Missing(x)) "MISSING" else "other",
            "other")
-        
+
 .strictCompareOp <- function(f, e1, e2, expr, errorCall, condFun) {
     msg <- character()
     typeCheck = paste(.checkDataType(e1), .checkDataType(e2), sep=".")
@@ -156,7 +156,7 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
                .tail(msg) <- c("Undefined type for univariate arithmetic: ", typeof(e1))
                )
     }
-    else {  
+    else {
         typeCheck = paste(.checkDataType(e1), .checkDataType(e2), sep=".")
         switch(typeCheck,
                numeric.numeric = , numeric.complex = ,
@@ -202,19 +202,20 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
 
 .makeStrictEnv()
 
-withStrictOps <- function(expr, attach = TRUE) {
+withStrictOps <- function(expr, attach) {
     if(missing(expr)) {
-        if(identical(attach, TRUE))
-          attach(.strictEnv, name = "srictOps", warn.conflicts = FALSE)
-        else if(identical(attach, FALSE)) {
-          pos <- match("strictOps", search())
-          if(is.na(pos))
-            message("strictOps not attached, no action taken")
-          else {
-              detach(pos)
-              message("strictOps environment detached")
-          }
-      }
+        warning("Cannot attach the environment \"strictOps\" because of CRAN restrictions\n    (added long after this function was written)")
+      ##   if(identical(attach, TRUE))
+      ##     attach(.strictEnv, name = "srictOps", warn.conflicts = FALSE)
+      ##   else if(identical(attach, FALSE)) {
+      ##     pos <- match("strictOps", search())
+      ##     if(is.na(pos))
+      ##       message("strictOps not attached, no action taken")
+      ##     else {
+      ##         detach(pos)
+      ##         message("strictOps environment detached")
+      ##     }
+      ## }
     }
     else
         eval(substitute(expr), .strictEnv, enclos = parent.frame())

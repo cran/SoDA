@@ -33,7 +33,7 @@ setMethod("show", "randomGeneratorState",
           function(object) {
               if(is.numeric(object) && length(object) > 10) {
                   x <- format(object[-(1:2)])
-                  cat("Uniform generator: ", tp[[1]], "; Normal: ", tp[[2]],
+                  cat("Uniform generator: ", object[[1]], "; Normal: ", object[[2]],
                       "\nSeeds: \n", sep = "")
                   cat(c(x[1:2], " ... ", x[length(x)]), sep = ", ")
                   cat("\n     (length =", length(x), ")\n")
