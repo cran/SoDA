@@ -22,7 +22,7 @@ demoSource <- function(demo = localRFiles(ask=TRUE), inputCon = .demoFifo(),  wh
                 cat(control,"\n", sep="", file = stderr())
                 demo <- .doParseEval(demo, eval = TRUE, read = FALSE)
             }
-            else 
+            else
             switch(names(.keyStrings)[[key]],
                    complete = {
                        demo <- .doParseEval(demo, eval = TRUE)
@@ -36,12 +36,12 @@ demoSource <- function(demo = localRFiles(ask=TRUE), inputCon = .demoFifo(),  wh
                        },
                    message("Oops, got a key (\"", key, "\"), but there's no corresponding action--looks like a bug in demoSource()")
                    )
-            
+
         }
     }
     ## process last expression, if any
     switch(demo@state,
-           parsed = 
+           parsed =
                demo <-  .doParseEval(demo),
            partial =
                warning("demo source ended with a partial expression: ", paste(demo@partial, collapse = "\n")))
@@ -138,44 +138,6 @@ exampleFiles <- function(names = character(), where = "SoDA", oneFile = FALSE, p
     demo@pos <- 0
     demo
 }
-# copied from the code for try() but w/o object `silent`
-.stdErrorHandler <- function(e) {
-        call <- conditionCall(e)
-        if (!is.null(call)) {
-            if (identical(call[[1]], quote(doTryCatch))) 
-                call <- sys.call(-4)
-            dcall <- deparse(call)[1]
-            prefix <- paste("Error in", dcall, ": ")
-            LONG <- 75
-            msg <- conditionMessage(e)
-            sm <- strsplit(msg, "\n")[[1]]
-            if (14 + nchar(dcall, type = "w") + nchar(sm[1], 
-                type = "w") > LONG) 
-                prefix <- paste(prefix, "\n  ", sep = "")
-        }
-        else prefix <- "Error : "
-        msg <- paste(prefix, conditionMessage(e), "\n", sep = "")
-        .Internal(seterrmessage(msg[1]))
-        if ( identical(getOption("show.error.messages"), 
-            TRUE)) {
-            cat(msg, file = stderr())
-            .Internal(printDeferredWarnings())
-        }
-        invisible(structure(msg, class = "try-error"))
-    }
-
-.localErrorHandler <- function() {
-    errorOpt <- options()$error
-    if(is.null(errorOpt))
-      function(e) e
-    else {
-        function(e) {
-            value <- .stdErrorHandler(e)
-            eval(errorOpt, parent.frame())
-            value
-        }
-    }
-}
 
 
 .evalWithVisible <- function(demo) {
@@ -184,9 +146,9 @@ exampleFiles <- function(names = character(), where = "SoDA", oneFile = FALSE, p
     value <- NULL
     for(expr in exprs) {
         exp2 <- substitute(withVisible(expr))
-        val <- try(withCallingHandlers(eval(exp2, envir = envir, enclos = parent.env(envir)),
-                        error = .localErrorHandler()))
-        if(inherits(val, "try-error")) {
+        val <- tryCatch(eval(exp2, envir = envir, enclos = parent.env(envir)),
+                        error = function(e)e)
+        if(inherits(val, "error")) {
             demo@value <- val
             demo@state <- "error"
             return(demo)
@@ -201,8 +163,8 @@ exampleFiles <- function(names = character(), where = "SoDA", oneFile = FALSE, p
 }
 
 .tryParse <- function(text) {
-    tt = trySilent(parse(text = text))
-    if(inherits(tt, "try-error")) {
+    tt = tryCatch(parse(text = text), error = function(e)e)
+    if(inherits(tt, "error")) {
         if(grep(fixed = TRUE, "unexpected end of input", tt) > 0)
           tt
         else {

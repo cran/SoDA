@@ -30,6 +30,7 @@ be a named vector of counts.
 \author{John M. Chambers <jmc@r-project.org>
 }
 \examples{
+\dontrun{
 if(require(RSPerl)){
   set.seed(314)
   someLetters <- sample(letters, 100, TRUE)
@@ -37,6 +38,7 @@ if(require(RSPerl)){
   tbl <- chunksAdd(tbl, someLetters[51:100])
   tbl <- chunksDrop(tbl, someLetters[1:10])
   chunksAdd(tbl) # to convert the table
+}
 }
 
 }

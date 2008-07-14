@@ -288,84 +288,84 @@ static char *val[] =
     "34aa973cd4c4daa4f61eeb2bdbad27316534016f"
 };
 
-int main( int argc, char *argv[] )
-{
-    FILE *f;
-    int i, j;
-    char output[41];
-    sha1_context ctx;
-    unsigned char buf[1000];
-    unsigned char sha1sum[20];
+/* int main( int argc, char *argv[] ) */
+/* { */
+/*     FILE *f; */
+/*     int i, j; */
+/*     char output[41]; */
+/*     sha1_context ctx; */
+/*     unsigned char buf[1000]; */
+/*     unsigned char sha1sum[20]; */
 
-    if( argc < 2 )
-    {
-        printf( "\n SHA-1 Validation Tests:\n\n" );
+/*     if( argc < 2 ) */
+/*     { */
+/*         printf( "\n SHA-1 Validation Tests:\n\n" ); */
 
-        for( i = 0; i < 3; i++ )
-        {
-            printf( " Test %d ", i + 1 );
+/*         for( i = 0; i < 3; i++ ) */
+/*         { */
+/*             printf( " Test %d ", i + 1 ); */
 
-            sha1_starts( &ctx );
+/*             sha1_starts( &ctx ); */
 
-            if( i < 2 )
-            {
-                sha1_update( &ctx, (uint8 *) msg[i],
-                             strlen( msg[i] ) );
-            }
-            else
-            {
-                memset( buf, 'a', 1000 );
+/*             if( i < 2 ) */
+/*             { */
+/*                 sha1_update( &ctx, (uint8 *) msg[i], */
+/*                              strlen( msg[i] ) ); */
+/*             } */
+/*             else */
+/*             { */
+/*                 memset( buf, 'a', 1000 ); */
 
-                for( j = 0; j < 1000; j++ )
-                {
-                    sha1_update( &ctx, (uint8 *) buf, 1000 );
-                }
-            }
+/*                 for( j = 0; j < 1000; j++ ) */
+/*                 { */
+/*                     sha1_update( &ctx, (uint8 *) buf, 1000 ); */
+/*                 } */
+/*             } */
 
-            sha1_finish( &ctx, sha1sum );
+/*             sha1_finish( &ctx, sha1sum ); */
 
-            for( j = 0; j < 20; j++ )
-            {
-                sprintf( output + j * 2, "%02x", sha1sum[j] );
-            }
+/*             for( j = 0; j < 20; j++ ) */
+/*             { */
+/*                 sprintf( output + j * 2, "%02x", sha1sum[j] ); */
+/*             } */
 
-            if( memcmp( output, val[i], 40 ) )
-            {
-                printf( "failed!\n" );
-                return( 1 );
-            }
+/*             if( memcmp( output, val[i], 40 ) ) */
+/*             { */
+/*                 printf( "failed!\n" ); */
+/*                 return( 1 ); */
+/*             } */
 
-            printf( "passed.\n" );
-        }
+/*             printf( "passed.\n" ); */
+/*         } */
 
-        printf( "\n" );
-    }
-    else
-    {
-        if( ! ( f = fopen( argv[1], "rb" ) ) )
-        {
-            perror( "fopen" );
-            return( 1 );
-        }
+/*         printf( "\n" ); */
+/*     } */
+/*     else */
+/*     { */
+/*         if( ! ( f = fopen( argv[1], "rb" ) ) ) */
+/*         { */
+/*             perror( "fopen" ); */
+/*             return( 1 ); */
+/*         } */
 
-        sha1_starts( &ctx );
+/*         sha1_starts( &ctx ); */
 
-        while( ( i = fread( buf, 1, sizeof( buf ), f ) ) > 0 )
-        {
-            sha1_update( &ctx, buf, i );
-        }
+/*         while( ( i = fread( buf, 1, sizeof( buf ), f ) ) > 0 ) */
+/*         { */
+/*             sha1_update( &ctx, buf, i ); */
+/*         } */
 
-        sha1_finish( &ctx, sha1sum );
+/*         sha1_finish( &ctx, sha1sum ); */
 
-        for( j = 0; j < 20; j++ )
-        {
-            printf( "%02x", sha1sum[j] );
-        }
+/*         for( j = 0; j < 20; j++ ) */
+/*         { */
+/*             printf( "%02x", sha1sum[j] ); */
+/*         } */
 
-        printf( "  %s\n", argv[1] );
-    }
+/*         printf( "  %s\n", argv[1] ); */
+/*     } */
 
-    return( 0 );
-}
+/*     return( 0 ); */
+/* } */
 
 #endif

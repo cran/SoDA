@@ -262,69 +262,69 @@ static char *val[] =
     "57edf4a22be3c955ac49da2e2107b67a"
 };
 
-int main( int argc, char *argv[] )
-{
-    FILE *f;
-    int i, j;
-    char output[33];
-    md5_context ctx;
-    unsigned char buf[1000];
-    unsigned char md5sum[16];
+/* int main( int argc, char *argv[] ) */
+/* { */
+/*     FILE *f; */
+/*     int i, j; */
+/*     char output[33]; */
+/*     md5_context ctx; */
+/*     unsigned char buf[1000]; */
+/*     unsigned char md5sum[16]; */
 
-    if( argc < 2 )
-    {
-        printf( "\n MD5 Validation Tests:\n\n" );
+/*     if( argc < 2 ) */
+/*     { */
+/*         printf( "\n MD5 Validation Tests:\n\n" ); */
 
-        for( i = 0; i < 7; i++ )
-        {
-            printf( " Test %d ", i + 1 );
+/*         for( i = 0; i < 7; i++ ) */
+/*         { */
+/*             printf( " Test %d ", i + 1 ); */
 
-            md5_starts( &ctx );
-            md5_update( &ctx, (uint8 *) msg[i], strlen( msg[i] ) );
-            md5_finish( &ctx, md5sum );
+/*             md5_starts( &ctx ); */
+/*             md5_update( &ctx, (uint8 *) msg[i], strlen( msg[i] ) ); */
+/*             md5_finish( &ctx, md5sum ); */
 
-            for( j = 0; j < 16; j++ )
-            {
-                sprintf( output + j * 2, "%02x", md5sum[j] );
-            }
+/*             for( j = 0; j < 16; j++ ) */
+/*             { */
+/*                 sprintf( output + j * 2, "%02x", md5sum[j] ); */
+/*             } */
 
-            if( memcmp( output, val[i], 32 ) )
-            {
-                printf( "failed!\n" );
-                return( 1 );
-            }
+/*             if( memcmp( output, val[i], 32 ) ) */
+/*             { */
+/*                 printf( "failed!\n" ); */
+/*                 return( 1 ); */
+/*             } */
 
-            printf( "passed.\n" );
-        }
+/*             printf( "passed.\n" ); */
+/*         } */
 
-        printf( "\n" );
-    }
-    else
-    {
-        if( ! ( f = fopen( argv[1], "rb" ) ) )
-        {
-            perror( "fopen" );
-            return( 1 );
-        }
+/*         printf( "\n" ); */
+/*     } */
+/*     else */
+/*     { */
+/*         if( ! ( f = fopen( argv[1], "rb" ) ) ) */
+/*         { */
+/*             perror( "fopen" ); */
+/*             return( 1 ); */
+/*         } */
 
-        md5_starts( &ctx );
+/*         md5_starts( &ctx ); */
 
-        while( ( i = fread( buf, 1, sizeof( buf ), f ) ) > 0 )
-        {
-            md5_update( &ctx, buf, i );
-        }
+/*         while( ( i = fread( buf, 1, sizeof( buf ), f ) ) > 0 ) */
+/*         { */
+/*             md5_update( &ctx, buf, i ); */
+/*         } */
 
-        md5_finish( &ctx, md5sum );
+/*         md5_finish( &ctx, md5sum ); */
 
-        for( j = 0; j < 16; j++ )
-        {
-            printf( "%02x", md5sum[j] );
-        }
+/*         for( j = 0; j < 16; j++ ) */
+/*         { */
+/*             printf( "%02x", md5sum[j] ); */
+/*         } */
 
-        printf( "  %s\n", argv[1] );
-    }
+/*         printf( "  %s\n", argv[1] ); */
+/*     } */
 
-    return( 0 );
-}
+/*     return( 0 ); */
+/* } */
 
 #endif

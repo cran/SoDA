@@ -33,7 +33,7 @@
       eval(exprs, envir = ev)
       sourceFile = basename(file)
       manDir = file.path(path, pkg, "man")
-      what <- objects(ev, all=T)
+      what <- objects(ev, all.names=TRUE)
       if(document) {
         docCommon <- character() # objects documented together
         for(name in what) {
