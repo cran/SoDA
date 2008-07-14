@@ -13,14 +13,14 @@ newIQ <- function(nData = 1000, probs = seq(0, 1, 0.25))
 }
 
 recompute  <- function(IQ, newdata = numeric(0)) {
-    IQ$qBuf <- doQuantile(qBuf, c(IQ$dataBuf, newdata), probs)
+    IQ$qBuf <- doQuantile(qBuf, c(IQ$dataBuf, newdata), IQ$probs)
     IQ$dataBuf <- numeric(0)
     IQ
 }
 
 getQ <- function(IQ) {
     if(length(IQ$dataBuf) > 0)
-      doQuantile(IQ$qbuf, IQ$dataBuf, probs)
+      doQuantile(IQ$qbuf, IQ$dataBuf, IQ$probs)
     else
       IQ$qBuf
 }

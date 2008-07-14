@@ -1,7 +1,7 @@
 Package: SoDA
 Type: Package
 Title: Functions and Exampels for "Software for Data Analysis"
-Version: 1.0-2
+Version: 1.0-3
 Date: 2008-07-14
 Depends:R(>= 2.5),methods,graphics
 Author:  John M Chambers
@@ -12,4 +12,4 @@ Description: Functions, examples and other software related to  the book
 License: GPL (>= 2)
 LazyLoad: yes
 LazyData: yes
-Packaged: Sun Aug 17 14:27:40 2008; jmc
+Packaged: Fri Oct 17 09:31:24 2008; jmc

@@ -6,6 +6,6 @@ exportClass(DateTime, GPSTrack)
 exportClass(track, track3)
 exportMethods(plot)
 exportMethods(show)
-exportClass(randomGeneratorState, simulationResult, demoSource)
+exportClass(randomGeneratorState, simulationResult, demoSource, binaryRep)
 
 

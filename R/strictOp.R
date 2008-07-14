@@ -6,11 +6,7 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
         return(expr)
     }
     fname <- fCall[[1]]
-    if(length(fCall) != 3) {
-       warning("expression supplied to strictOp() was not a simple binary operator call: ",
-              deparse(fCall) )
-        return(expr)
-    }
+    univariate <- length(fCall) == 2 || eval.parent(substitute(missing(E2), list(E2 = fCall[[3]])))
     if(is.name(fname)) {
         f <- as.character(fname)
         gen = getGeneric(f)
@@ -21,41 +17,57 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
         else f <- gen@generic
         fCall[[1]] <- as.name(f) # for strictOp error messages use the actual function
     }
+    if(univariate) {
+        localCall <- fCall
+        localCall[[2]] <- quote(e1);
+        if(length(localCall) > 2) localCall[[3]] <- NULL # stupidly won't set length(localCall)
+    }
+    else {
+        localCall <- fCall
+        localCall[[2]] <- quote(e1); localCall[[3]] <- quote(e2)
+    }
     e1 <- eval.parent(fCall[[2]])
-    e2 <- eval.parent(fCall[[3]])
+    e2 <- if(univariate) .MissingArg else eval.parent(fCall[[3]])
     ## From now on, must evaluate the expression locally to avoid re-evaluating
     ## one of the operands.
-    localCall <- fCall
-    localCall[[2]] <- quote(e1); localCall[[3]] <- quote(e2)
     if(is.null(gen)) {
         warning("Function \"", f, "\" is not one of the operators that can be checked")
         return(eval(localCall))
     }
     ## Analyse the operators according to their group
-   group = gen@group
+    group = gen@group
     if(length(group) == 0) {
-        ## only && and || have no group
+        f <- as.character(f) # remove package attribute
+        ## some functions have no group
         if(identical(f, "&&") || identical(f, "||"))
           .strictCondOp(f, e1, e2, eval(localCall), errorCall, condFun)
+        else if(identical(f, "!"))
+          .strictLogicOp(f, e1, e2, eval(localCall), errorCall, condFun)
         else {
             warning("Function \"", f, "\" is not one of the operators that can be checked")
-            return(eval(localCall))
+            eval(localCall)
         }
     }
-    g1 = group[[1]]
-    if(!(is.character(g1) && length(g1) == 1)) {
-        warning("Function \"", f, "\" has a non-standard generic group")
-        return(eval(localCall))
+    else {
+        g1 = group[[1]]
+        if(!(is.character(g1) && length(g1) == 1)) {
+            warning("Function \"", f, "\" has a non-standard generic group")
+            return(eval(localCall))
+        }
+        switch(g1,
+               Arith = .strictArithOp(f, e1, e2, eval(localCall), errorCall, condFun),
+               Logic = .strictLogicOp(f, e1, e2, eval(localCall), errorCall, condFun),
+               Compare = .strictCompareOp(f, e1, e2, localCall, errorCall, condFun),
+               {
+                   warning("Function \"", f, "\" is not one of the operators that can be checked")
+                   eval(localCall)
+               })
     }
-    switch(g1,
-           Arith = .strictArithOp(f, e1, e2, eval(localCall), errorCall, condFun),
-           Logic = .strictLogicOp(f, e1, e2, eval(localCall), errorCall, condFun),
-           Compare = .strictCompareOp(f, e1, e2, localCall, errorCall, condFun),
-           {
-               warning("Function \"", f, "\" is not one of the operators that can be checked")
-               return(eval(localCall))
-           })
 }
+
+.MissingArg <- new.env() # just a fixed reference
+
+.Missing <- function(obj) identical(obj, .MissingArg)
 
 `.tail<-` <- function(x, value) {
     c(x, paste(value, collapse = ""))
@@ -72,14 +84,16 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
       .tail(msg) <- c("Length of first argument shojuld be 1; got ", length(e1))
     else if(is.na(e1))
       .tail(msg) <- c("First argument is NA")
-    if(!is.logical(e2))
+    if(.Missing(e2))
+      .tail(msg) <- "No univariate version of this operator"
+    else if(!is.logical(e2))
       .tail(msg) <- c("Second argument is not logical: class \"", class(e2), "\"")
     else if(length(e2) != 1)
       .tail(msg) <- c("Length of second argument shojuld be 1; got ", length(e2))
     else if(is.na(e2))
       .tail(msg) <- c("Second argument is NA")
     if(length(msg) > 0)
-       condFun("<strictOp>: ", deparse(errorCall)[[1]], ": ", msg, call. = FALSE)
+       .strictOpMessage(errorCall, msg, condFun)
     return(expr)
 }
 
@@ -88,10 +102,14 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
     msg <- character()
     if(!is.logical(e1) && !is.raw(e1))
       .tail(msg) <- c("First argument is not logical or raw: class \"", class(e1), "\"")
-    if(!is.logical(e2) && !is.raw(e2))
+    if(.Missing(e2)) {
+        if(!identical(f, "!"))
+          .tail(msg) <- "No univariate version of this operator"
+    }
+    else if(!is.logical(e2) && !is.raw(e2))
       .tail(msg) <- c("Second argument is not logical or raw: class \"", class(e2), "\"")
     if(length(msg) > 0)
-       condFun("<strictOp>: ", deparse(errorCall)[[1]], ": ", msg, call. = FALSE)
+      .strictOpMessage(errorCall, msg, condFun)       
     return(expr)
 }
 
@@ -102,6 +120,7 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
            logical ="logical",
            complex = "complex",
            raw = "raw",
+           environment = if(.Missing(x)) "MISSING" else "other",
            "other")
         
 .strictCompareOp <- function(f, e1, e2, expr, errorCall, condFun) {
@@ -110,35 +129,53 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
     switch(typeCheck,
            numeric.numeric = , character.character = ,
            logical.logical = , complex.complex = ,
-           raw.raw = {},
-           .tail(msg) <- c("Undefined combination of types for comparison: ", typeof(e1),
+           raw.raw = {}, {
+               if(length(grep("MISSING", typeCheck))>0)
+                   .tail(msg) <- "Univariate version of this operator undefined"
+               else
+                 .tail(msg) <- c("Undefined combination of types for comparison: ", typeof(e1),
                            ", ", typeof(e2))
-           )
+           })
     l1 = length(e1); l2 = length(e2)
     if(l1 != l2 && l1 != 1 && l2 != 1)
       .tail(msg) <- c("Ambiguous unequal lengths: ", l1, ", ", l2)
      if(length(msg) > 0)
-       condFun("<strictOp>: ", deparse(errorCall)[[1]], ": ", msg, call. = FALSE)
+       .strictOpMessage(errorCall, msg, condFun)
     return(eval.parent(expr))
 }
 
 .strictArithOp  <- function(f, e1, e2, expr, errorCall, condFun) {
     msg <- character()
-    typeCheck = paste(.checkDataType(e1), .checkDataType(e2), sep=".")
-    switch(typeCheck,
-           numeric.numeric = , numeric.complex = ,
-           complex.numeric = {},
-           .tail(msg) <- c("Undefined combination of types for arithmetic: ", typeof(e1),
-                           ", ", typeof(e2))
-           )
-    l1 = length(e1); l2 = length(e2)
-    if(l1 != l2 && l1 != 1 && l2 != 1)
-      .tail(msg) <- c("Ambiguous unequal lengths: ", l1, ", ", l2)
+    if(.Missing(e2)) {
+        switch(f,
+               "+" = , "-" = {},
+               .tail(msg) <- c("Univariate version not defined for operator ", f)
+               )
+        switch(.checkDataType(e1),
+               numeric = , complex = {},
+               .tail(msg) <- c("Undefined type for univariate arithmetic: ", typeof(e1))
+               )
+    }
+    else {  
+        typeCheck = paste(.checkDataType(e1), .checkDataType(e2), sep=".")
+        switch(typeCheck,
+               numeric.numeric = , numeric.complex = ,
+               complex.numeric = {},
+               .tail(msg) <- c("Undefined combination of types for arithmetic: ", typeof(e1),
+                               ", ", typeof(e2))
+               )
+        l1 = length(e1); l2 = length(e2)
+        if(l1 != l2 && l1 != 1 && l2 != 1)
+          .tail(msg) <- c("Ambiguous unequal lengths: ", l1, ", ", l2)
+    }
      if(length(msg) > 0)
-       condFun("<strictOp>: ", deparse(errorCall)[[1]], ": ", msg, call. = FALSE)
+       .strictOpMessage(errorCall, msg, condFun)
     return(eval.parent(expr))
 }
 
+.strictOpMessage <- function(errorCall, msg, condFun) {
+    condFun("<strictOp>: ", deparse(errorCall)[[1]], ": ", paste(msg, collapse = "; "), call. = FALSE)
+}
 
 .makeStrictEnv <- function() {
     myEnv <- environment(sys.function())
@@ -157,6 +194,8 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
     }
     for(f in c("&&", "||"))
         doOp(f)
+    ## do `!` even though it's not in the Logic group
+    assign("!", function(x) strictOp(base::`!`(x), errorCall = sys.call()), envir = .strictEnv)
 }
 
 .strictEnv <- new.env(TRUE)

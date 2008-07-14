@@ -21,6 +21,5 @@ newIQ <- function(nData = 1000, probs = seq(0, 1, 0.25)) {
        else
          qBuf
    }
-
    list(addData = addData, getQ = getQ)
 }
