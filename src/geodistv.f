@@ -1,5 +1,5 @@
       subroutine geodistv(lat1,lon1,lat2,lon2,dist, n)
-      double precision lat1(1), lon1(1), lat2(1), lon2(1), dist(1)
+      double precision lat1(n), lon1(n), lat2(n), lon2(n), dist(n)
       integer n
 
       double precision faz, baz

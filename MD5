@@ -1,4 +1,4 @@
-f272ab529bcb9411a3c20c624b1111c6 *DESCRIPTION
+fd5736b2dce4758b3224a262b6ea0d7c *DESCRIPTION
 0789a3e0e60547dc8ef62b017931d7d4 *LICENSE
 dc54b05b1be49b49185281ef74d13b10 *NAMESPACE
 3e376aa4bd9a5c4bd769ef733089a2a9 *R/GPSTrack.R
@@ -174,7 +174,7 @@ af111623274db692c7fa4ed822873c26 *src/crc32.c
 4d1cfa258e52f3f91b09afdba248fec5 *src/crc32.h
 f8fbaf29558dc8b43afca0cd982d9a9d *src/digest_C.c
 da8e859f4e1ae797e505208f3057ecc6 *src/geoddist.f
-e05dbe1f4f939f7f22d10f1161a0a967 *src/geodistv.f
+def5fdd70c1467b9cde28aca34eef351 *src/geodistv.f
 e63923a6cf3ceeb7f48b3a3c540fe187 *src/md5.c
 9847470291dc6d9a7d86ae83d225745e *src/md5.h
 246c556a161d17ae7bc348c02dbfb0a5 *src/sha1.c
