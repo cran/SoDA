@@ -51,14 +51,16 @@ digest(object, algo=c("md5", "sha1", "crc32"),
  C code.
 }
 \references{
-  MD5: \url{http://www.ietf.org/rfc/rfc1321.txt}. 
+  MD5: \url{https://www.ietf.org/rfc/rfc1321.txt}. 
 
-  SHA-1: \url{http://www.itl.nist.gov/fipspubs/fip180-1.htm}.
+  SHA-1: \url{https://www.itl.nist.gov/fipspubs/fip180-1.htm}.
 
-  CRC32:  \url{ftp://ftp.rocksoft.com/cliens/rocksoft/papers/crc_v3.txt}. 
+  CRC32:  \url{https://zlib.net/crc_v3.txt}.
 
-  \url{http://www.cr0.net:8040/code/crypto} for the underlying
-  C functions used here for sha-1 and md5, and further references.
+  The page for the code underlying the C functions used here for sha-1
+  and md5, and further references, is no longer accessible.  Please see
+  \url{https://en.wikipedia.org/wiki/SHA-1} and
+  \url{https://en.wikipedia.org/wiki/MD5}.
 
   \url{http://zlib.net} for documentation on the zlib library which
   supplied the code for crc32.

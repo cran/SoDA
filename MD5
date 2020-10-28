@@ -1,6 +1,6 @@
-fd5736b2dce4758b3224a262b6ea0d7c *DESCRIPTION
-0789a3e0e60547dc8ef62b017931d7d4 *LICENSE
-dc54b05b1be49b49185281ef74d13b10 *NAMESPACE
+06a570e81e79903edeeb7e1fa672585a *DESCRIPTION
+0789a3e0e60547dc8ef62b017931d7d4 *LICENSE.note
+46146b02f9be7910b61e7fed16920f87 *NAMESPACE
 3e376aa4bd9a5c4bd769ef733089a2a9 *R/GPSTrack.R
 6ef6e24bfea5b92b1e0f34dd8dcfcb89 *R/binaryRep.R
 6fdf122fcf2367cfec7b6f688b4f149f *R/binaryRepAux.R
@@ -10,7 +10,7 @@ dc54b05b1be49b49185281ef74d13b10 *NAMESPACE
 d119a6caa25bb64d1f0bcd17cd931bb2 *R/dropFormula.R
 71ef42816330bad366b7b8d16a384121 *R/dropModel.R
 d3dc58214000aad4222e2189b08791aa *R/evalText.R
-cced3e41369218f1c0f87f6defeb9c8e *R/geoDist.R
+8735f81a88ac6cd6fa9192f11b826f07 *R/geoDist.R
 b56f939d473d04ff706dac064df6944b *R/geoXY.R
 a30b361fe2864434e919bce63c479500 *R/handlers.R
 5530892f31657b5bae01800ed8eeeae4 *R/jitterXY.R
@@ -25,7 +25,7 @@ aee212c9a0478383fb5771b95231a8e9 *R/scanRepeated.R
 edbd581262ae59717e894e76dcf3da7a *R/showEnv.R
 b81a241a8fed03df1efc6fc26d3d0160 *R/showLanguage.R
 7b298df7aa081945fbef3b0ca2416fad *R/simulationResult.R
-a57921d886725b57e8a3984366e5c69a *R/strictOp.R
+da0abd23441d4f82f8ac25381d6981c8 *R/strictOp.R
 8cf88796d8a9759161bb1a71b2800525 *R/trackClass.R
 26cbbd821fa04f1cc618f08d33d083f1 *R/trackSpeed.R
 2886c14ef01f797cb166529cc60f5370 *R/triDiag.R
@@ -138,10 +138,10 @@ e8c40b8e35e83924fb79c89e88962dec *inst/testdata/gpsObject1.rda
 5c92a90db8a81abc893e5381f820f2da *man/GPSTrack-class.Rd
 b11a093e3dcd95673f70fd779b0182c3 *man/SoDA-package.Rd
 a8e34f148b282b7629b92f7348c9315f *man/binaryRep.Rd
-56d8bba6c52c3c067cd119157924457e *man/chunksAdd.Rd
+04273024051d6379d709fb80437ea43f *man/chunksAdd.Rd
 5029e0a1a7ecf0180f91c85ebd98724d *man/demoSource.Rd
 dfe7ba3daecd3385028738db1362d4e7 *man/demoSourceClass.Rd
-66a046583a476a94495611e022597be5 *man/digest.Rd
+7c126cb73441cee6b8de9c830e734f21 *man/digest.Rd
 ea67ad1707a5e5fbeedd4476d4cbe2cb *man/dowNames.Rd
 194041f7b4a6ccf7f5983dfe5ad5e266 *man/dropModel.Rd
 5d94bb1e521371938255c221812b5a27 *man/evalText.Rd

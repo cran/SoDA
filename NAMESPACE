@@ -1,4 +1,10 @@
 import(graphics)
+importFrom("methods", "callNextMethod", "elNamed", "elNamed<-",
+           "getGeneric", "getGroupMembers", "is", "metaNameUndo", "new",
+           "packageSlot<-", "promptClass", "promptMethods", "show",
+           "showDefault")
+importFrom("stats", "as.formula", "resid", "runif", "terms", "update")
+importFrom("utils", "data", "menu", "recover")
 exportPattern("^[^\\.]")
 useDynLib(SoDA)
 

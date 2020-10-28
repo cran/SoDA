@@ -22,8 +22,8 @@ function(lat1, lon1, lat2, lon2, NAOK = TRUE, DUP = TRUE) {
     res <- .Fortran("GEODISTV",
                     as.double(lat1),as.double(lon1),
                     as.double(lat2),as.double(lon2),
-                     dist = double(nok), as.integer(nok),
-                    DUP = DUP, PACKAGE = "SoDA")$dist
+                    dist = double(nok), as.integer(nok),
+                    PACKAGE = "SoDA")$dist
     if(NAOK && any(nas)) {
         value <- rep(NA, n)
         value[ok] <- res

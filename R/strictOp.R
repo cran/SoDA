@@ -180,11 +180,13 @@ strictOp <- function(expr, warnOnly = FALSE, errorCall = substitute(expr)) {
 .makeStrictEnv <- function() {
     myEnv <- environment(sys.function())
     doOp <- function(f) {
-            op <- args(f)
-            if(!is.null(op)) {
-              body(op) <- substitute(strictOp(base::WHAT(e1, e2), errorCall = sys.call()),
-                                       list(WHAT = as.name(f)))
-              assign(f, op, envir = .strictEnv)
+        op <- args(f)
+        if(!is.null(op)) {
+            body(op) <- substitute(strictOp(WHAT(e1, e2), errorCall = sys.call()),
+                                   list(WHAT = call("::",
+                                                    as.name("base"),
+                                                    as.name(f))))
+            assign(f, op, envir = .strictEnv)
           }
         }
     for(group in c("Arith", "Logic", "Compare")) {

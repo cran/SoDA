@@ -26,7 +26,7 @@ Typically a character vector but any mix of scalar items can be supplied.}
   A proxy reference to a Perl hash, if \code{convert} is \code{FALSE}; otherwise a named vector (the conversion is done by the Perl interface in package \code{RSPerl}, and will
 be a named vector of counts.
 }
-\references{\url{http://www.omegahat.org/RSPerl/} for the \code{RSPerl} interface.}
+\references{\url{http://www.omegahat.net/RSPerl/} for the \code{RSPerl} interface.}
 \author{John M. Chambers <jmc@r-project.org>
 }
 \examples{
